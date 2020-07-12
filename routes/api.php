@@ -27,3 +27,11 @@ Route::post('article','ArticleController@store');
 Route::put('article','ArticleController@store');
 // delete an article
 Route::delete('article/{id}','ArticleController@destroy');
+
+// Product Resources
+Route::apiResource('/Products','ProductController');
+
+// Review Resources
+Route::group(['prefix'=> 'products'], function(){
+    Route::apiResource('/{product}/reviews','ReviewController');
+});
