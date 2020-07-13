@@ -35,11 +35,11 @@ class ArticleController extends Controller
     {
         $article = $request->isMethod('put') ? Article::findOrFail($request->id) : new Article;
 
-     //   if($request->isMethod('post')) {
-            $article->id = $request->input('id');
-            $article->title = $request->input('title');
-            $article->body = $request->input('body');
-     //   }
+    
+        $article->id = $request->input('id');
+        $article->title = $request->input('title');
+        $article->body = $request->input('body');
+        
         if($article->save()){
             return new ArticleResource($article);
         }
